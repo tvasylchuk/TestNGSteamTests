@@ -1,4 +1,4 @@
-package framework.basepage;
+package framework.pageComponents;
 
 import framework.driver.Browser;
 import framework.elements.MainMenuItem;

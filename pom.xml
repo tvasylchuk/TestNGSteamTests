@@ -37,7 +37,7 @@
                     <suiteXmlFiles>
                         <suiteXMLFile>testing.xml</suiteXMLFile>
                     </suiteXmlFiles>
-                    <reportsDirectory>report</reportsDirectory>
+                    <reportsDirectory>report_onliner_tests</reportsDirectory>
                 </configuration>
             </plugin>
         </plugins>

@@ -1,4 +1,4 @@
-package framework.basepage;
+package framework.pageObjects;
 
 public class MainPage extends BasePage{
 
