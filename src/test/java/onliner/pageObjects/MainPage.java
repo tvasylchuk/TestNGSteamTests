@@ -1,6 +1,8 @@
-package framework.pageObjects;
+package onliner.pageObjects;
 
-public class MainPage extends BasePage{
+import framework.pageObjects.BasePage;
+
+public class MainPage extends BasePage {
 
     public MainPage()
     {

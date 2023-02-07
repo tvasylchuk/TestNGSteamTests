@@ -1,10 +1,11 @@
-package framework.pageObjects;
+package onliner.pageObjects;
 
 import framework.elements.Label;
-import framework.pageComponents.ProductsPageComponent;
+import framework.pageObjects.BasePage;
+import onliner.pageComponents.ProductsPageComponent;
 import org.openqa.selenium.By;
 
-public class CatalogPage extends BasePage{
+public class CatalogPage extends BasePage {
     private final Label title = new Label(By.xpath("//div[@class='catalog-navigation__title']"), "Title");
     private final ProductsPageComponent productsPageComponent;
     public CatalogPage()

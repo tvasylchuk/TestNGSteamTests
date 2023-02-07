@@ -1,9 +1,24 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Default Suite" verbose="1" >
-    <test name="OnlinerTests"   >
+    <test name="CatalogTests"   >
         <classes>
-            <class name="OnlinerTests"></class>
+            <class name="onlinerTests.CatalogTests"></class>
+        </classes>
+    </test>
+    <test name="ProductTests"   >
+        <classes>
+            <class name="onlinerTests.ProductTests"></class>
+        </classes>
+    </test>
+    <test name="TVPageTests">
+        <classes>
+            <class name="onlinerTests.TVPageTests"></class>
+        </classes>
+    </test>
+    <test name="EndToEndTests">
+        <classes>
+            <class name="onlinerTests.EndToEndTests"></class>
         </classes>
     </test>
 </suite>

@@ -1,4 +1,4 @@
-package framework.pageComponents;
+package onliner.pageComponents;
 
 import framework.driver.Browser;
 import framework.elements.MainMenuItem;

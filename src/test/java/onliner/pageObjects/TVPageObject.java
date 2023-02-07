@@ -1,23 +1,18 @@
-package framework.pageObjects;
+package onliner.pageObjects;
 
 import framework.elements.*;
-import framework.pageComponents.ProductsPageComponent;
-import framework.pageComponents.SearchResultPageComponent;
+import framework.pageObjects.BasePage;
+import onliner.pageComponents.ProductsPageComponent;
+import onliner.pageComponents.SearchResultPageComponent;
 import model.TVCriterias;
-import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.By;
-import org.openqa.selenium.TimeoutException;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.internal.collections.Pair;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 import java.util.NoSuchElementException;
 
-public class TVPageObject extends BasePage{
+public class TVPageObject extends BasePage {
     private ProductsPageComponent productsPageComponent = null;
     private SearchResultPageComponent searchResult = null;
     private Label Title = new Label (By.tagName("h1"));

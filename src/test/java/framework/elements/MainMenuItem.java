@@ -18,4 +18,3 @@ public class MainMenuItem extends BaseElement{
         throw new CloneNotSupportedException();
     }
 }
-

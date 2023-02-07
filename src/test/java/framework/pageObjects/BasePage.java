@@ -1,10 +1,11 @@
-package framework.basepage;
+package framework.pageObjects;
 
 import framework.driver.Browser;
+import onliner.pageComponents.MainMenuPageComponent;
 
 public abstract class BasePage {
 
-    private static Browser browser = null;
+    protected static Browser browser = null;
 
     protected MainMenuPageComponent _mainMenuPC = null;
 

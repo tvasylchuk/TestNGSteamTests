@@ -28,8 +28,16 @@ public abstract class BaseElement {
 
     public WebElement getElement()
     {
-        waitUntilElementDisplayed();
+        browser.getWait().until(ExpectedConditions.presenceOfElementLocated(locator));
+        element = browser.getDriver().findElement(locator);
         return element;
+    }
+
+    public List<WebElement> getElements()
+    {
+        browser.getWait().until(ExpectedConditions.presenceOfElementLocated(locator));
+        elements = browser.getDriver().findElements(locator);
+        return elements;
     }
 
     public boolean isEnabled()
@@ -49,10 +57,9 @@ public abstract class BaseElement {
 
     public void click()
     {
-        waitUntilElementDisplayed();
-
+        browser.getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
+        getElement();
         JavascriptExecutor js = (JavascriptExecutor) browser.getDriver();
-        js.executeScript("arguments[0].scrollIntoView();", element);
         js.executeScript("arguments[0].style.border='3px solid red'", element);
 
         element.click();
@@ -60,9 +67,9 @@ public abstract class BaseElement {
 
     public abstract void sendKey(String key) throws CloneNotSupportedException;
 
-    private void waitUntilElementDisplayed()
+    public void scrollPageTillElementVisible()
     {
-        browser.getWait().until(ExpectedConditions.visibilityOfElementLocated(locator));
-        element = browser.getDriver().findElement(locator);
+        JavascriptExecutor js = (JavascriptExecutor) browser.getDriver();
+        js.executeScript("arguments[0].scrollIntoView();", element);
     }
 }

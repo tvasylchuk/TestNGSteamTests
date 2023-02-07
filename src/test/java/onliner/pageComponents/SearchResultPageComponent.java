@@ -1,4 +1,4 @@
-package framework.pageComponents;
+package onliner.pageComponents;
 
 import framework.elements.Label;
 import framework.elements.TextBoxGroup;
