@@ -1,4 +1,4 @@
-package steam.tests;
+package steam.testng.tests;
 
 import framework.Logger;
 import org.openqa.selenium.TimeoutException;
@@ -7,7 +7,6 @@ import org.testng.annotations.Test;
 import steam.pageObjects.ActionGamesPage;
 import steam.pageObjects.AgeVerificationPage;
 import steam.pageObjects.GamePage;
-import steam.tests.BaseTest;
 
 import java.util.ArrayList;
 

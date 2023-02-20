@@ -1,4 +1,4 @@
-package steam.tests;
+package steam.testng.tests;
 
 import framework.Logger;
 import framework.PropertiesResourceManager;

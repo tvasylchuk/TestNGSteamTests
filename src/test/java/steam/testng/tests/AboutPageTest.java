@@ -1,4 +1,4 @@
-package steam.tests;
+package steam.testng.tests;
 
 import framework.utils.FileManager;
 import org.testng.Assert;
@@ -6,7 +6,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steam.pageObjects.AboutSteamPage;
 import steam.pageObjects.StoreHomePage;
-import steam.tests.BaseTest;
 
 import java.util.ArrayList;
 

@@ -1,4 +1,4 @@
-package steam.tests;
+package steam.testng.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -6,7 +6,6 @@ import steam.pageObjects.AgeVerificationPage;
 import steam.pageObjects.GamePage;
 import steam.pageObjects.SearchPage;
 import steam.pageObjects.StoreHomePage;
-import steam.tests.BaseTest;
 
 import java.util.ArrayList;
 

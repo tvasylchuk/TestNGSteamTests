@@ -5,23 +5,21 @@ import framework.utils.GamePaneComparator;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-public class GamePane {
-
+public class SpecialOfferGamePane extends GamePane {
+    private final By gamePriceLocator = By.xpath(".//div[contains(@class, 'StoreSalePriceBox')]");
+    private final By gameDiscounterLocator = By.xpath(".//div[contains(@class, 'StoreSaleDiscountBox')]");
     private int lbDiscount;
     private float lbPrice;
-    private Label linkGame;
-    private String gameName;
     private String scrollBarPosition;
-    private final WebElement rootElement;
     public static GamePaneComparator comparator = new GamePaneComparator();
 
-    public GamePane(WebElement rootElement) {
-        this.rootElement = rootElement;
+    public SpecialOfferGamePane(WebElement rootElement) {
+        super(rootElement);
     }
 
-    public void setDiscount(By locator) {
+    public void setDiscount() {
         try{
-            String str = new Label(locator, rootElement).getElement().getText();
+            String str = new Label(gameDiscounterLocator, rootElement).getElement().getText();
             lbDiscount = Integer.parseInt(str.substring(1, str.indexOf("%")));
         }
         catch(Exception e)
@@ -30,9 +28,9 @@ public class GamePane {
         }
     }
 
-    public void setLbPrice(By locator) {
+    public void setLbPrice() {
         try {
-            String str = new Label(locator, rootElement).getElement().getText();
+            String str = new Label(gamePriceLocator, rootElement).getElement().getText();
             if (str.equals("Free To Play") || str.isEmpty()) {
                 lbPrice = 0;
             }
@@ -46,26 +44,10 @@ public class GamePane {
         }
     }
 
-    public void setLinkGame(By locator){
-        linkGame = new Label(locator, rootElement);
-    }
-
-    public void setName(By locator){
-        var element =  new Label(locator, rootElement).getElement();
-        gameName = element.getAttribute("alt");
-    }
-
     public void setScrollBarPosition(String position){
         scrollBarPosition = position;
     }
-
     public int getLbDiscount() { return lbDiscount; }
-
     public float getLbPrice() { return lbPrice; }
-
-    public Label getLinkGame() { return linkGame; }
-
-    public String getGameName() { return gameName; }
-
     public String getScrollBar() { return scrollBarPosition; }
 }
