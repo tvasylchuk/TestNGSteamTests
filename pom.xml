@@ -20,11 +20,28 @@
             <version>7.7.1</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.6</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.6</version>
+        </dependency>
         <!-- https://mvnrepository.com/artifact/org.seleniumhq.selenium/selenium-java -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.8.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.11.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -35,9 +52,9 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXMLFile>testing.xml</suiteXMLFile>
+                        <suiteXMLFile>SteamTests.xml</suiteXMLFile>
                     </suiteXmlFiles>
-                    <reportsDirectory>report_onliner_tests</reportsDirectory>
+                    <reportsDirectory>report_steam_tests</reportsDirectory>
                 </configuration>
             </plugin>
         </plugins>
