@@ -144,7 +144,7 @@ public class Browser {
                 else {
                     Object result = (((JavascriptExecutor) input)
                             .executeScript("return document['readyState'] ? 'complete' == document.readyState : true"));
-                    if (result != null && result instanceof Boolean && (Boolean) result){
+                    if (result instanceof Boolean && (Boolean) result){
                         logger.info("framework.driver.Browser.waitPageToLoad.completed");
                         return true;
                     }

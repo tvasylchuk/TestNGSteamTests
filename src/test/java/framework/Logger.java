@@ -6,10 +6,9 @@ import org.testng.Reporter;
 public class Logger {
 
     public static Logger loggerInstance = null;
+    private static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(Logger.class);
 
-    private Logger()
-    {
-    }
+    private Logger()  {    }
 
     public static Logger getInstance()
     {
@@ -20,24 +19,25 @@ public class Logger {
         return loggerInstance;
     }
 
-    public void error(final String message)
-    {
+    public void error(final String message) {
+        logger.error(message);
         Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
     }
 
     public void fatal(final String message)
     {
+        logger.fatal(message);
         Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
         Assert.assertTrue(false);
     }
 
-    public void warn(final String message)
-    {
+    public void warn(final String message) {
+        logger.warn(message);
         Reporter.log("<div class=\"skipped\">"+message+"</div><br>");
     }
 
-    public void info(final String message)
-    {
+    public void info(final String message) {
+        logger.info(message);
         Reporter.log(message+"<br>");
     }
 
