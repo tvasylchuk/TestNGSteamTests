@@ -5,35 +5,63 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="adfb6574-3221-43ae-8de0-af7d57337a56" name="Changes" comment="Create Catalog test in Java">
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/PropertiesResourceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Button.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/ComboBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/FilterCheckBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Label.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBox.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBoxGroup.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/model/TVCriterias.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/ProductsPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/SearchResultPageComponent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/CatalogPage.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/TVPageObject.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onlinerTests/EndToEndTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onlinerTests/ProductTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/onlinerTests/TVPageTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/Browser.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/resources/TestData.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/SteamTests.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/framework/Logger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/framework/elements/ScrollBar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/framework/utils/FileManager.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/framework/utils/GamePaneComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/GamePane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/Languages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/model/SpecialOfferGamePane.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/AcceptCookiesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/CarouselPageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/MainMenuPageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/SearchPageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/SpecialOfferCarouselPageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageComponents/StoreNavigationPageComponent.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/AboutSteamPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/ActionGamesPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/AgeVerificationPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/GamePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SearchPage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SteamBasePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/SteamStorePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/pageObjects/StoreHomePage.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/AboutPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/ActionPageTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/BaseTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/EndToEndTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/SearchGameTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/steam/testng/tests/StartSteamPageTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Driver.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/EN.testdata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/PL.testdata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/Local/RU.testdata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/resources/SteamTestData.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/OnlinerTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/framework/basepage/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/pageObjects/BasePage.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/framework/basepage/MainMenuPageComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/MainMenuPageComponent.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/framework/basepage/MainPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/MainPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/PropertiesResourceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/PropertiesResourceManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/framework/driver/Browser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/driver/Browser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/driver/DriverFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/driver/DriverFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/BaseElement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/BaseElement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/Button.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Button.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/ComboBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/ComboBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/FilterCheckBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/FilterCheckBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/Label.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/Label.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/MainMenuItem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/MainMenuItem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/TextBox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/elements/TextBoxGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/elements/TextBoxGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/framework/pageObjects/BasePage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/framework/pageObjects/BasePage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/model/TVCriterias.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/model/TVCriterias.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/MainMenuPageComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/MainMenuPageComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/SearchResultPageComponent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageComponents/SearchResultPageComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/CatalogPage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/CatalogPage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/TVPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onliner/pageObjects/TVPageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/onlinerTests/BaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onlinerTests/BaseTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/onlinerTests/CatalogTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/onlinerTests/CatalogTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/Browser.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/Browser.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/testing.xml" beforeDir="false" afterPath="$PROJECT_DIR$/testing.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,8 +72,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -76,17 +104,60 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "D:/study/OnlinerLast/OnlinerInJava/src/test/java",
-    "project.structure.last.edited": "Modules",
+    "last_directory_selection": "D:/study/OnlinerLast/OnlinerInJava/src/test/java/steam/tests",
+    "last_opened_file_path": "D:/study/OnlinerLast/OnlinerInJava",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
+    "project.structure.side.proportion": "0.39770114",
     "settings.editor.selected.configurable": "File.Encoding"
   }
 }]]></component>
-  <component name="RunManager" selected="TestNG.EndToEndTests.checkSearchResultsTest">
-    <configuration name="D:/study/OnlinerLast/OnlinerInJava/testing.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\study\OnlinerLast\OnlinerInJava\src\test\resources" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="steam.tests" />
+    </key>
+  </component>
+  <component name="RunManager" selected="TestNG.EndToEndTest">
+    <configuration name="AboutPageTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="v1" />
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/testing.xml" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="steam.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="steam" />
+      <option name="MAIN_CLASS_NAME" value="steam.tests.AboutPageTest" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ActionPageTests" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="v1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="steam.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="steam" />
+      <option name="MAIN_CLASS_NAME" value="steam.tests.ActionPageTests" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="D:/study/OnlinerLast/OnlinerInJava/SteamTests.xml" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="v1" />
+      <option name="SUITE_NAME" value="$PROJECT_DIR$/SteamTests.xml" />
       <option name="TEST_OBJECT" value="SUITE" />
       <properties />
       <listeners />
@@ -94,35 +165,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="EndToEndTests.checkSearchResultsTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EndToEndTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="v1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="onlinerTests.*" />
+          <option name="PATTERN" value="steam.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="SUITE_NAME" value="$PROJECT_DIR$/testing.xml" />
-      <option name="PACKAGE_NAME" value="onlinerTests" />
-      <option name="MAIN_CLASS_NAME" value="onlinerTests.EndToEndTests" />
-      <option name="METHOD_NAME" value="checkSearchResultsTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ProductTests" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="v1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="onlinerTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="onlinerTests" />
-      <option name="MAIN_CLASS_NAME" value="onlinerTests.ProductTests" />
+      <option name="PACKAGE_NAME" value="steam" />
+      <option name="MAIN_CLASS_NAME" value="steam.tests.EndToEndTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -130,34 +182,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TVPageTests" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="EndToEndTest.steamGameEndToENdTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="v1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="onlinerTests.*" />
+          <option name="PATTERN" value="steam.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="onlinerTests" />
-      <option name="MAIN_CLASS_NAME" value="onlinerTests.TVPageTests" />
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TVPageTests.SetUpperPriceFilterTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="v1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="onlinerTests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="onlinerTests" />
-      <option name="MAIN_CLASS_NAME" value="onlinerTests.TVPageTests" />
-      <option name="METHOD_NAME" value="SetUpperPriceFilterTest" />
+      <option name="PACKAGE_NAME" value="steam" />
+      <option name="MAIN_CLASS_NAME" value="steam.tests.EndToEndTest" />
+      <option name="METHOD_NAME" value="steamGameEndToENdTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -167,11 +202,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.EndToEndTests.checkSearchResultsTest" />
-        <item itemvalue="TestNG.D:/study/OnlinerLast/OnlinerInJava/testing.xml" />
-        <item itemvalue="TestNG.TVPageTests" />
-        <item itemvalue="TestNG.TVPageTests.SetUpperPriceFilterTest" />
-        <item itemvalue="TestNG.ProductTests" />
+        <item itemvalue="TestNG.EndToEndTest" />
+        <item itemvalue="TestNG.D:/study/OnlinerLast/OnlinerInJava/SteamTests.xml" />
+        <item itemvalue="TestNG.ActionPageTests" />
+        <item itemvalue="TestNG.AboutPageTest" />
+        <item itemvalue="TestNG.EndToEndTest.steamGameEndToENdTest" />
       </list>
     </recent_temporary>
   </component>
@@ -248,6 +283,21 @@
           <url>file://$PROJECT_DIR$/src/test/java/onlinerTests/TVPageTests.java</url>
           <line>65</line>
           <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/steam/pageObjects/AboutSteamPage.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="68" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/steam/testng/tests/EndToEndTest.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="69" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/steam/pageComponents/SpecialOfferCarouselPageComponent.java</url>
+          <line>57</line>
+          <option name="timeStamp" value="70" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
