@@ -1,4 +1,4 @@
-package model;
+package onliner.model;
 
 public class TVCriterias {
 

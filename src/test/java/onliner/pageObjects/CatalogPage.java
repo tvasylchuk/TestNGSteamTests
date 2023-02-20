@@ -16,7 +16,7 @@ public class CatalogPage extends BasePage {
 
     @Override
     public String GetTitle() {
-        return title.getElement().getText();
+        return title.getTextFromElement();
     }
 
     public void selectProductFromCatalog(String department, String category, String product) {

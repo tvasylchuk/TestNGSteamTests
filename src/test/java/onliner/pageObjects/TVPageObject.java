@@ -4,7 +4,7 @@ import framework.elements.*;
 import framework.pageObjects.BasePage;
 import onliner.pageComponents.ProductsPageComponent;
 import onliner.pageComponents.SearchResultPageComponent;
-import model.TVCriterias;
+import onliner.model.TVCriterias;
 import org.openqa.selenium.By;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.internal.collections.Pair;
@@ -13,16 +13,16 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public class TVPageObject extends BasePage {
-    private ProductsPageComponent productsPageComponent = null;
+    private final ProductsPageComponent productsPageComponent = new ProductsPageComponent();
     private SearchResultPageComponent searchResult = null;
-    private Label Title = new Label (By.tagName("h1"));
-    private Button btnLocation = new Button(By.cssSelector("span.button-style.button-style_another.button-style_base.schema-filter__button"), "Confirm location button");
-    private Label lbFilterTag = new Label(By.className("schema-tags__text"));
-    private Button btnSearchProducts = new Button(By.xpath("//div[@class='schema-filter-button__state schema-filter-button__state_initial schema-filter-button__state_disabled schema-filter-button__state_control schema-filter-button__state_animated']"), "Search product");
-    private TextBox UpperPrice = new TextBox(By.xpath("//input[@class='schema-filter-control__item schema-filter__number-input schema-filter__number-input_price' and @placeholder='до']"));
-    private ComboBox diagonalSizeFrom = new ComboBox(By.xpath("//select[@class='schema-filter-control__item' and contains(@data-bind, 'facet.value.from')]"));
-    private ComboBox diagonalSizeTo = new ComboBox(By.xpath("//select[@class='schema-filter-control__item' and contains(@data-bind, 'facet.value.to')]"));
-    private TextBoxGroup txtGroupProducts = new TextBoxGroup(By.className("schema-product"));
+    private final Label Title = new Label (By.tagName("h1"));
+    private final Button btnLocation = new Button(By.cssSelector("span.button-style.button-style_another.button-style_base.schema-filter__button"), "Confirm location button");
+    private final Label lbFilterTag = new Label(By.className("schema-tags__text"));
+    private final Button btnSearchProducts = new Button(By.xpath("//div[@class='schema-filter-button__state schema-filter-button__state_initial schema-filter-button__state_disabled schema-filter-button__state_control schema-filter-button__state_animated']"), "Search product");
+    private final TextBox UpperPrice = new TextBox(By.xpath("//input[@class='schema-filter-control__item schema-filter__number-input schema-filter__number-input_price' and @placeholder='до']"));
+    private final ComboBox diagonalSizeFrom = new ComboBox(By.xpath("//select[@class='schema-filter-control__item' and contains(@data-bind, 'facet.value.from')]"));
+    private final ComboBox diagonalSizeTo = new ComboBox(By.xpath("//select[@class='schema-filter-control__item' and contains(@data-bind, 'facet.value.to')]"));
+    private final TextBoxGroup txtGroupProducts = new TextBoxGroup(By.className("schema-product"));
 
     private FilterCheckBox chFilterByMaker(String filterCategory, String filterName)
     {
@@ -38,7 +38,7 @@ public class TVPageObject extends BasePage {
     @Override
     public String GetTitle()
     {
-        return Title.getElement().getText();
+        return Title.getTextFromElement();
     }
 
     public void SetProduceFilter(List<String> tvMakers)
@@ -46,7 +46,7 @@ public class TVPageObject extends BasePage {
         for (String maker: tvMakers)
         {
             var producerFilter = chFilterByMaker("Производитель", maker.toLowerCase());
-            producerFilter.getElement();
+            //producerFilter.getElement();
             producerFilter.setProducerFilter();
         }
     }
@@ -56,7 +56,7 @@ public class TVPageObject extends BasePage {
         for(String resolution:resolutions)
         {
             var resolutionFilter = chFilterByMaker("Разрешение", resolution);
-            resolutionFilter.getElement();
+            //resolutionFilter.getElement();
             resolutionFilter.setProducerFilter();
         }
     }
@@ -68,10 +68,10 @@ public class TVPageObject extends BasePage {
 
     public void SetDiagonal(Pair<String, String> diagonals)
     {
-        diagonalSizeFrom.getElement();
+        //diagonalSizeFrom.getElement();
         diagonalSizeFrom.selectItemByText(diagonals.first());
 
-        diagonalSizeTo.getElement();
+        //diagonalSizeTo.getElement();
         diagonalSizeTo.selectItemByText(diagonals.second());
     }
 
@@ -79,18 +79,19 @@ public class TVPageObject extends BasePage {
     {
         try
         {
-            browser.getWait().until(ExpectedConditions.visibilityOf(btnLocation.getElement()));
+            browser.getWait().until(ExpectedConditions.visibilityOfElementLocated(btnLocation.getLocator()));
             btnLocation.scrollPageTillElementVisible();
             btnLocation.click();
         }
         catch (NoSuchElementException exception)
         {
+            logger.info("onliner.pageObjects.TVPageObject.location.dialog.none");
         }
     }
 
     public String GetFilterTagText()
     {
-        return lbFilterTag.getElement().getText();
+        return lbFilterTag.getTextFromElement();
     }
 
 
