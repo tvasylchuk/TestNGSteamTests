@@ -36,9 +36,4 @@ public class FilterCheckBox extends BaseElement{
             clickReceiver.getElement().click();
         }
     }
-
-    @Override
-    public void sendKey(String key) throws CloneNotSupportedException {
-        throw new CloneNotSupportedException();
-    }
 }

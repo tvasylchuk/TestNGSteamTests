@@ -12,7 +12,7 @@ public class ComboBox extends BaseElement{
     }
 
     public ComboBox(By locator)  { super(locator);}
-    @Override
+
     public void sendKey(String key) {
         browser.getWait().until(ExpectedConditions.visibilityOfElementLocated(getLocator()));
 

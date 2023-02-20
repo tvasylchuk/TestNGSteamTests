@@ -1,26 +1,23 @@
 package framework;
 
 import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
 public class PropertiesResourceManager {
-    private final String filePath;
+    private final String fileName;
     private Properties properties = null;
-    public PropertiesResourceManager(String filePath)
-    {
-        this.filePath = filePath;
+    public PropertiesResourceManager(String fileName) {
+        this.fileName = fileName;
+        properties = new Properties();
     }
 
     public void getPropertiesFromFile() throws FileNotFoundException {
         try {
-            InputStream reader = getClass().getClassLoader().getResourceAsStream(filePath);
-
-            //new FileReader(filePath);
-            properties = new Properties();
+            InputStream reader = getClass().getClassLoader().getResourceAsStream(fileName);
             properties.load(reader);
+            reader.close();
         }
         catch(FileNotFoundException e) {
             throw new FileNotFoundException(e.getMessage());
@@ -34,4 +31,5 @@ public class PropertiesResourceManager {
     {
         return properties.getProperty(key);
     }
+
 }

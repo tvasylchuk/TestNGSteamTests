@@ -13,10 +13,7 @@ public class Label extends BaseElement
 
     public Label(By locator)  { super(locator);}
 
-    @Override
-    public void sendKey(String key) {
-        super.getElement().sendKeys(key);
-    }
+    public Label(By locator, WebElement rootElement)  { super(locator, rootElement);}
 
     public String getChildElementText(By locator)
     {
