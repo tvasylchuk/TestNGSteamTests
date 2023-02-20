@@ -35,10 +35,10 @@ public class FileManager {
             File file = new File(filePath);
             if(file.exists())
             {
-                logger.error("FileManager.fileExists.true");
+                logger.info("FileManager.fileExists.true");
                 return true;
             }
-            logger.error("FileManager.fileExists.false");
+            logger.info("FileManager.fileExists.false");
             return false;
         }
         catch(Exception e)
