@@ -3,6 +3,7 @@ package onlinerTests;
 import onliner.pageObjects.CatalogPage;
 import onliner.pageObjects.MainPage;
 import org.testng.Assert;
+import org.testng.Reporter;
 import org.testng.annotations.Test;
 
 @Test
@@ -15,6 +16,7 @@ public class CatalogTests extends BaseTest{
         mainPage.SelectMenu("Каталог");
 
         Assert.assertEquals(browser.getBrowserUri(), "https://catalog.onliner.by/");
+        Reporter.log("Каталог page is opened.", true);
 
         var catalogPage = new CatalogPage();
         Assert.assertTrue(catalogPage.GetTitle().contains( "Каталог"));

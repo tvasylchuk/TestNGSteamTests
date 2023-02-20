@@ -28,7 +28,6 @@ public class BaseTest {
         browser.navigate("https://www.onliner.by");
     }
 
-
     @AfterMethod()
     public void tearDown()
     {
