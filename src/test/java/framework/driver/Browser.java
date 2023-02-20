@@ -7,7 +7,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WindowType;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.util.Strings;
 import steam.model.Languages;
 
 import java.io.FileNotFoundException;
@@ -149,17 +148,18 @@ public class Browser {
     }
 
     private static BrowserType getBrowserType(String parameter) {
-        String value = System.getProperty(parameter);
-        if (value == null || value.isEmpty())
+        if (parameter == null || parameter.isEmpty())
             return BrowserType.valueOf(DEFAULT_BROWSER);
 
+        String value = System.getProperty(parameter);
         return BrowserType.valueOf(value);
     }
 
     private static Languages getLocale(String parameter) {
-        String value = System.getProperty(parameter);
-        if (value == null || value.isEmpty())
+        if (parameter == null || parameter.isEmpty())
             return Languages.valueOf(DEFAULT_LOC);
+
+        String value = System.getProperty(parameter);
 
         return Languages.valueOf(value);
     }

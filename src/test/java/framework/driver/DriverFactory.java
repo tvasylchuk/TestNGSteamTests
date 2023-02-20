@@ -31,6 +31,8 @@ public abstract class DriverFactory {
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.download.folderList", 2);
                 profile.setPreference("browser.download.dir", downloadFileDirectory);
+                profile.setPreference("fission.webContentIsolationStrategy", 0);
+                profile.setPreference("fission.bfcacheInParent", false);
                 profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
                         "text/csv,application/java-archive, application/x-msexcel,application/excel,application/vnd.openxmlformats-officedocument.wordprocessingml.document,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml,application/vnd.microsoft.portable-executable");
                 profile.setPreference("intl.accept_languages",browserLanguage);

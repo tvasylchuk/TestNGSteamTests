@@ -110,6 +110,7 @@ public abstract class BaseElement {
 
     public void scrollPageTillElementVisible()
     {
+        getElement();
         JavascriptExecutor js = (JavascriptExecutor) browser.getDriver();
         js.executeScript("arguments[0].scrollIntoView();", element);
     }
