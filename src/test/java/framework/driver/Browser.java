@@ -53,19 +53,9 @@ public class Browser {
         pageLoadTimeout = Duration.ofSeconds(Long.parseLong(props.getPropertyValueByKey("PageLoadTimeout")));
         fileDownloadTimeout = Integer.parseInt(props.getPropertyValueByKey("FileDownloadTimeOut"));
 
-        if (!Strings.isNotNullAndNotEmpty(props.getPropertyValueByKey("BrowserType"))) {
-            currentBrowser =  BrowserType.valueOf(DEFAULT_BROWSER);
-        }
-        else {
-            currentBrowser = BrowserType.valueOf(props.getPropertyValueByKey("BrowserType"));
-        }
+        currentBrowser =  getBrowserType(System.getProperty("browser"));
 
-        if (!Strings.isNotNullAndNotEmpty(props.getPropertyValueByKey("Locale"))) {
-            loc =  Languages.valueOf(DEFAULT_LOC);
-        }
-        else {
-            loc = Languages.valueOf(props.getPropertyValueByKey("Locale"));
-        }
+        loc =  getLocale(System.getProperty("locale"));
     }
 
     public static Browser getInstance()
@@ -156,5 +146,21 @@ public class Browser {
         catch (Exception e){
             logger.warn("framework.driver.Browser.waitPageToLoad.timeout");
         }
+    }
+
+    private static BrowserType getBrowserType(String parameter) {
+        String value = System.getProperty(parameter);
+        if (value == null || value.isEmpty())
+            return BrowserType.valueOf(DEFAULT_BROWSER);
+
+        return BrowserType.valueOf(value);
+    }
+
+    private static Languages getLocale(String parameter) {
+        String value = System.getProperty(parameter);
+        if (value == null || value.isEmpty())
+            return Languages.valueOf(DEFAULT_LOC);
+
+        return Languages.valueOf(value);
     }
 }
