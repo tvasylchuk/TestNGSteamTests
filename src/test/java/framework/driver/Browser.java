@@ -148,19 +148,19 @@ public class Browser {
     }
 
     private static BrowserType getBrowserType(String parameter) {
-        if (parameter == null || parameter.isEmpty())
+        if (parameter == null) {
             return BrowserType.valueOf(DEFAULT_BROWSER);
-
-        String value = System.getProperty(parameter);
-        return BrowserType.valueOf(value);
+        }
+        
+        return BrowserType.valueOf(parameter);
     }
 
     private static Languages getLocale(String parameter) {
-        if (parameter == null || parameter.isEmpty())
+
+        if (parameter == null) {
             return Languages.valueOf(DEFAULT_LOC);
+        }
 
-        String value = System.getProperty(parameter);
-
-        return Languages.valueOf(value);
+        return Languages.valueOf(parameter);
     }
 }
