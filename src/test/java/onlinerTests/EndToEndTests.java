@@ -29,7 +29,7 @@ public class EndToEndTests extends  BaseTest {
     public void checkSearchResultsTest() throws FileNotFoundException {
         Logger.loggerInstance.logTestName("onlinerTests.EndToEndTests.checkSearchResultsTest");
         var mainPage = new MainPage();
-        mainPage.SelectMenu("Каталог");
+        mainPage.SelectMenu(catalog);
 
         CatalogPage catalogPage = new CatalogPage();
         catalogPage.selectProductFromCatalog(department, category, product);

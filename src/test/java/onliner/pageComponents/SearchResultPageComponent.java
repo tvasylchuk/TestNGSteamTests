@@ -30,6 +30,8 @@ public class SearchResultPageComponent {
         int parentElements = txtGrProducts.getElements().size();
         for(int i = 0; i < parentElements; i++)
         {
+            productTitle(i+1).getElement();
+            productTitle(i+1).scrollPageTillElementVisible();
             String maker = productTitle(i+1).getTextFromElement().split(" ")[1];
             String resolution = productDescription(i+1).getTextFromElement().split(" ")[1];
             String diagonal = productDescription(i+1).getTextFromElement().split(" ")[0].replace("\"", "");

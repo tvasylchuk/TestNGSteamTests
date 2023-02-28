@@ -67,6 +67,6 @@ public class Logger {
     public void logScreenshot() throws Exception {
         var screenShotName = Browser.takeScreenshot();
         logger.info("Screenshot: "+screenShotName.getAbsolutePath());
-        Reporter.log("<img src=\"file:///" + screenShotName.getAbsolutePath() + "\" alt=\"\" height='200' width='300'/><br />");
+        Reporter.log("</br><img id='ClickResult' src='" + screenShotName.getAbsolutePath() + "' style='width:600px'/>");
     }
 }

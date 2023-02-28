@@ -16,6 +16,8 @@ public class BaseTest {
     protected static String tvMaker;
     protected static String tvResolution;
     protected static String department;
+
+    protected static String catalog;
     protected static String category;
     protected static String product;
     protected static Pair<String, String> diagonalRange;
@@ -41,6 +43,7 @@ public class BaseTest {
             propertiesManager.getPropertiesFromFile();
             department = propertiesManager.getPropertyValueByKey("Department").translateEscapes();
             category = propertiesManager.getPropertyValueByKey("ProductCategory").translateEscapes();
+            catalog = propertiesManager.getPropertyValueByKey("Catalog").translateEscapes();
             product = propertiesManager.getPropertyValueByKey("Product").translateEscapes();
             tvMaker = propertiesManager.getPropertyValueByKey("Producer").translateEscapes();
             tvResolution = propertiesManager.getPropertyValueByKey("Resolution").translateEscapes();
