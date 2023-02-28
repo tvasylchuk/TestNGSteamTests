@@ -160,6 +160,8 @@ public class Browser {
         byte[] scrImage = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
         timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss.SSS").format(Calendar.getInstance().getTime());
         screenShotFile = new File(System.getProperty("user.dir")+"\\Screenshots\\"+timeStamp+".png");
+        screenShotFile.getParentFile().mkdirs();
+        screenShotFile.createNewFile();
         try{
             OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(screenShotFile));
             outputStream.write(scrImage);
