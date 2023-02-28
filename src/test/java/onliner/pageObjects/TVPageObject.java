@@ -1,5 +1,6 @@
 package onliner.pageObjects;
 
+import framework.Logger;
 import framework.driver.BrowserType;
 import framework.elements.*;
 import framework.pageObjects.BasePage;
@@ -20,6 +21,7 @@ public class TVPageObject extends BasePage {
     private final Label Title = new Label (By.tagName("h1"));
     private final Button btnLocation(BrowserType browserType)
     {
+        logger.info(browserType.toString());
         switch (browserType) {
             case Firefox -> {
                 return new Button(By.xpath("//div[@class='popover-style__content']//span[contains(text(), 'Да, верно')]"), "Confirm location button");
@@ -76,7 +78,14 @@ public class TVPageObject extends BasePage {
 
     public void SetTopPrice(String price)
     {
+        UpperPrice.getElement();
+        UpperPrice.scrollPageTillElementVisible();
         UpperPrice.sendKey(price.toString());
+        try {
+            Logger.loggerInstance.logScreenshot();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 
     public void SetDiagonal(Pair<String, String> diagonals)

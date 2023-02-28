@@ -1,5 +1,6 @@
 package onlinerTests;
 
+import framework.Logger;
 import onliner.pageObjects.TVPageObject;
 import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
@@ -23,6 +24,7 @@ public class TVPageTests extends BaseTest{
     @Test
     public void SetProducerFilterTest()
     {
+        Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetProducerFilterTest");
         ArrayList<String> tvMakers = new ArrayList<>();
         tvMakers.add( tvMaker );
 
@@ -39,6 +41,7 @@ public class TVPageTests extends BaseTest{
     @Test
     public void SetResolutionFilterTest()
     {
+        Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetResolutionFilterTest");
         ArrayList<String> resolutions = new ArrayList<>();
         resolutions.add( tvResolution );
 
@@ -55,6 +58,7 @@ public class TVPageTests extends BaseTest{
     @Test
     public void SetUpperPriceFilterTest()
     {
+        Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetUpperPriceFilterTest");
         browser.navigate("https://catalog.onliner.by/tv");
 
         var page = new TVPageObject();
@@ -69,7 +73,7 @@ public class TVPageTests extends BaseTest{
     @Test
     public void SetDiagonalFilterTest()
     {
-       //var diagonalRange = new Pair<>("40\"", "50\"");
+        Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetDiagonalFilterTest");
 
         browser.navigate("https://catalog.onliner.by/tv");
 

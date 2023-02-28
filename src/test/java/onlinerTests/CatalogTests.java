@@ -1,5 +1,6 @@
 package onlinerTests;
 
+import framework.Logger;
 import onliner.pageObjects.CatalogPage;
 import onliner.pageObjects.MainPage;
 import org.testng.Assert;
@@ -12,6 +13,7 @@ public class CatalogTests extends BaseTest{
     @Test
     public void navigateToCatalogTest()
     {
+        Logger.loggerInstance.logTestName("onlinerTests.CatalogTests.navigateToCatalogTest");
         var mainPage = new MainPage();
         mainPage.SelectMenu("Каталог");
 

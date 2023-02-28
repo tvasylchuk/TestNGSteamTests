@@ -1,5 +1,6 @@
 package onlinerTests;
 
+import framework.Logger;
 import onliner.pageObjects.CatalogPage;
 import onliner.pageObjects.MainPage;
 import onliner.pageObjects.TVPageObject;
@@ -26,6 +27,7 @@ public class EndToEndTests extends  BaseTest {
 
     @Test
     public void checkSearchResultsTest() throws FileNotFoundException {
+        Logger.loggerInstance.logTestName("onlinerTests.EndToEndTests.checkSearchResultsTest");
         var mainPage = new MainPage();
         mainPage.SelectMenu("Каталог");
 

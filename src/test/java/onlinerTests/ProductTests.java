@@ -1,5 +1,6 @@
 package onlinerTests;
 
+import framework.Logger;
 import onliner.pageObjects.CatalogPage;
 import onliner.pageObjects.TVPageObject;
 import org.testng.Assert;
@@ -22,7 +23,8 @@ public class ProductTests extends BaseTest{
     }
 
     @Test()
-    public void SelectProductTest() throws FileNotFoundException {
+    public void SelectProductTest() {
+        Logger.loggerInstance.logTestName("onlinerTests.ProductTests.SelectProductTest");
         browser.navigate("https://catalog.onliner.by/");
         CatalogPage page = new CatalogPage();
         page.selectProductFromCatalog(department, category, product);
