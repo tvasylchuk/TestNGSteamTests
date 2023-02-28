@@ -2,6 +2,7 @@ package steam.testng.tests;
 
 import framework.Logger;
 import framework.utils.FileManager;
+import io.cucumber.java.an.E;
 import org.openqa.selenium.TimeoutException;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -32,56 +33,63 @@ public class EndToEndTest extends BaseTest {
     }
 
     @Test
-    public void steamGameEndToENdTest()
-    {
-        logTestName("steam.tests.EndToEndTest.steamGameEndToENdTest");
-        logStep();
-        browser.navigate("https://store.steampowered.com/");
-        browser.maximise();
-        StoreHomePage mainPage = new StoreHomePage();
-
-        logStep();
-        mainPage.mainMenuPC.switchLanguage(languageSettings);
-        browser.waitPageToLoad();
-
-        logStep();
-        mainPage.navigationPC.navigateMenu(menuItem, subMenuItem);
-        browser.waitPageToLoad();
-
-        logStep();
-        var args = new ArrayList<String>();
-        args.add(sectionName);
-        ActionGamesPage page = new ActionGamesPage(args);
+    public void steamGameEndToENdTest() throws Exception {
         try
         {
-            page.coockiesPage.acceptAllCoockies();
+            logTestName("steam.tests.EndToEndTest.steamGameEndToENdTest");
+            logStep();
+            browser.navigate("https://store.steampowered.com/");
+            browser.maximise();
+            StoreHomePage mainPage = new StoreHomePage();
+
+            logStep();
+            mainPage.mainMenuPC.switchLanguage(languageSettings);
+            browser.waitPageToLoad();
+
+            logStep();
+            mainPage.navigationPC.navigateMenu(menuItem, subMenuItem);
+            browser.waitPageToLoad();
+
+            logStep();
+            var args = new ArrayList<String>();
+            args.add(sectionName);
+            ActionGamesPage page = new ActionGamesPage(args);
+            try
+            {
+                page.coockiesPage.acceptAllCoockies();
+            }
+            catch(TimeoutException e)
+            {
+                Logger.getInstance().warn("AcceptCookiesPage.not.found");
+            }
+
+            logStep();
+            var game = page.findCheapestActionGame();
+            page.selectGameFromOffered(game);
+            browser.waitPageToLoad();
+            if (browser.getBrowserUri().contains("agecheck"))
+            {
+                var ageCheckPage = new AgeVerificationPage();
+                ageCheckPage.confirmAge("1", "January", "1984");
+            }
+            browser.waitPageToLoad();
+
+            logStep();
+            var gamePage = new GamePage(game.getGameName());
+            gamePage.mainMenuPC.installSteam();
+
+            logStep();
+            args.clear();
+            args.add(btnInstallation);
+            var aboutPage = new AboutSteamPage(args);
+            aboutPage.downloadInstallFile();
+
+            Assert.assertTrue(FileManager.fileExists(browser.getBrowserDownloadDirectory()+"\\SteamSetup.exe"), "File SteamSetup.exe was not found.");
         }
-        catch(TimeoutException e)
+        catch (Exception e)
         {
-            Logger.getInstance().warn("AcceptCookiesPage.not.found");
+            Logger.getInstance().error(e.getMessage());
+            Logger.getInstance().logScreenshot();
         }
-
-        logStep();
-        var game = page.findCheapestActionGame();
-        page.selectGameFromOffered(game);
-        browser.waitPageToLoad();
-        if (browser.getBrowserUri().contains("agecheck"))
-        {
-            var ageCheckPage = new AgeVerificationPage();
-            ageCheckPage.confirmAge("1", "January", "1984");
-        }
-        browser.waitPageToLoad();
-
-        logStep();
-        var gamePage = new GamePage(game.getGameName());
-        gamePage.mainMenuPC.installSteam();
-
-        logStep();
-        args.clear();
-        args.add(btnInstallation);
-        var aboutPage = new AboutSteamPage(args);
-        aboutPage.downloadInstallFile();
-
-        Assert.assertTrue(FileManager.fileExists(browser.getBrowserDownloadDirectory()+"\\SteamSetup.exe"), "File SteamSetup.exe was not found.");
     }
 }

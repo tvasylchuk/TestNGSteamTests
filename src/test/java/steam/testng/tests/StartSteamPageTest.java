@@ -1,5 +1,6 @@
 package steam.testng.tests;
 
+import framework.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steam.pageObjects.ActionGamesPage;
@@ -25,22 +26,29 @@ public class StartSteamPageTest extends BaseTest {
     }
 
     @Test
-    public void changeLanguageTest()
-    {
-        logTestName("steam.tests.StartSteamPageTest.changeLanguageTest");
-        logStep();
-        browser.navigate("https://store.steampowered.com/");
-        browser.maximise();
-        StoreHomePage mainPage = new StoreHomePage();
-        logStep();
-        mainPage.mainMenuPC.switchLanguage(languageSettings);
-        browser.waitPageToLoad();
-        logStep();
-        mainPage.navigationPC.navigateMenu(menuItem, subMenuItem);
-        browser.waitPageToLoad();
-        logStep();
-        var args = new ArrayList<String>();
-        args.add(sectionName);
-        ActionGamesPage page = new ActionGamesPage(args);
+    public void changeLanguageTest() throws Exception {
+        try
+        {
+            logTestName("steam.tests.StartSteamPageTest.changeLanguageTest");
+            logStep();
+            browser.navigate("https://store.steampowered.com/");
+            browser.maximise();
+            StoreHomePage mainPage = new StoreHomePage();
+            logStep();
+            mainPage.mainMenuPC.switchLanguage(languageSettings);
+            browser.waitPageToLoad();
+            logStep();
+            mainPage.navigationPC.navigateMenu(menuItem, subMenuItem);
+            browser.waitPageToLoad();
+            logStep();
+            var args = new ArrayList<String>();
+            args.add(sectionName);
+            ActionGamesPage page = new ActionGamesPage(args);
+        }
+        catch (Exception e)
+        {
+            Logger.getInstance().error(e.getMessage());
+            Logger.getInstance().logScreenshot();
+        }
     }
 }

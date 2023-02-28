@@ -27,6 +27,11 @@ public class Logger {
         Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
     }
 
+    public void debug(final String message) {
+        logger.debug(message);
+        Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
+    }
+
     public void fatal(final String message)
     {
         logger.fatal(message);

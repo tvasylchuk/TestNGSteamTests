@@ -18,7 +18,7 @@ import java.util.Calendar;
 
 public class Browser {
     private final static String BROWSER_FILE_NAME = "Browser.properties";
-    private final static String DEFAULT_BROWSER = "Chrome";
+    private final static String DEFAULT_BROWSER = "Firefox";
     private final static String DEFAULT_LOC = "EN";
 
     private static PropertiesResourceManager props;

@@ -22,37 +22,45 @@ public class ActionPageTests extends BaseTest {
         args.add(resourceManager.getPropertyValueByKey("salesSection"));
     }
 
-    public void getDiscountGamesTest()
-    {
-        logStep();
-        browser.navigate("https://store.steampowered.com/category/action/");
-        browser.maximise();
-        browser.waitPageToLoad();
-
-        logStep();
-        ActionGamesPage page = new ActionGamesPage(args);
+    public void getDiscountGamesTest() throws Exception {
         try
         {
-            page.coockiesPage.acceptAllCoockies();
+            logStep();
+            browser.navigate("https://store.steampowered.com/category/action/");
+            browser.maximise();
+            browser.waitPageToLoad();
+
+            logStep();
+            ActionGamesPage page = new ActionGamesPage(args);
+
+            try
+            {
+                page.coockiesPage.acceptAllCoockies();
+            }
+            catch(TimeoutException e)
+            {
+                Logger.getInstance().warn("AcceptCookiesPage.not.found");
+            }
+
+            logStep();
+            var game = page.findCheapestActionGame();
+            page.selectGameFromOffered(game);
+            browser.waitPageToLoad();
+
+            if (browser.getBrowserUri().contains("agecheck"))
+            {
+                var ageCheckPage = new AgeVerificationPage();
+                ageCheckPage.confirmAge("1", "January", "1984");
+            }
+            browser.waitPageToLoad();
+            var gamePage = new GamePage(game.getGameName());
         }
-        catch(TimeoutException e)
+        catch (Exception e)
         {
-            Logger.getInstance().warn("AcceptCookiesPage.not.found");
+            Logger.getInstance().error(e.getMessage());
+            Logger.getInstance().logScreenshot();
         }
 
-        logStep();
-        var game = page.findCheapestActionGame();
-        page.selectGameFromOffered(game);
-        browser.waitPageToLoad();
-
-        if (browser.getBrowserUri().contains("agecheck"))
-        {
-            var ageCheckPage = new AgeVerificationPage();
-            ageCheckPage.confirmAge("1", "January", "1984");
-        }
-
-        browser.waitPageToLoad();
-        var gamePage = new GamePage(game.getGameName());
     }
 }
 

@@ -96,6 +96,7 @@ public class FileManager {
 
         assert filesInList != null;
         for (File file :filesInList) {
+            Logger.getInstance().debug("File: "+file.getAbsolutePath());
             if (file.isFile()){
                 String name = file.getName();
                 if(name.endsWith(fileExtension)){

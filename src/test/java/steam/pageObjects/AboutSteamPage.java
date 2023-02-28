@@ -30,7 +30,7 @@ public class AboutSteamPage extends SteamBasePage{
         FileManager.deleteOldFiles(str);
 
         btnInstallFile(installText).click();
-        FileManager.waitTillFIleDownloadingStarted(browser.getBrowserDownloadDirectory(), ".tmp");
-        FileManager.waitTillFIleDownloaded(browser.getBrowserDownloadDirectory(), ".tmp");
+        FileManager.waitTillFIleDownloadingStarted(browser.getBrowserDownloadDirectory(), ".crdownload");
+        FileManager.waitTillFIleDownloaded(browser.getBrowserDownloadDirectory(), ".crdownload");
     }
 }

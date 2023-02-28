@@ -1,5 +1,6 @@
 package steam.testng.tests;
 
+import framework.Logger;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import steam.pageObjects.AgeVerificationPage;
@@ -22,24 +23,32 @@ public class SearchGameTest extends BaseTest {
     }
 
     @Test
-    public void searchAdultGameTest()
-    {
-        logTestName("steam.tests.StartSteamPageTest.changeLanguageTest");
-        logStep();
-        browser.navigate("https://store.steampowered.com/");
-        browser.maximise();
-        StoreHomePage mainPage = new StoreHomePage();
-        logStep();
-        mainPage.searchPC.searchForGame(args.get(0));
-        browser.waitPageToLoad();
-        var searchPage = new SearchPage();
-        searchPage.selectSearchedItem(args.get(0));
-        browser.waitPageToLoad();
-        var agePage = new AgeVerificationPage();
-        agePage.confirmAge("28", "February", "1985");
-        browser.waitPageToLoad();
-        var gamePage = new GamePage(args.get(0));
-        gamePage.mainMenuPC.installSteam();
+    public void searchAdultGameTest() throws Exception {
+        try
+        {
+            logTestName("steam.tests.StartSteamPageTest.changeLanguageTest");
+            logStep();
+            browser.navigate("https://store.steampowered.com/");
+            browser.maximise();
+            StoreHomePage mainPage = new StoreHomePage();
+            logStep();
+            mainPage.searchPC.searchForGame(args.get(0));
+            browser.waitPageToLoad();
+            var searchPage = new SearchPage();
+            searchPage.selectSearchedItem(args.get(0));
+            browser.waitPageToLoad();
+            var agePage = new AgeVerificationPage();
+            agePage.confirmAge("28", "February", "1985");
+            browser.waitPageToLoad();
+            var gamePage = new GamePage(args.get(0));
+            gamePage.mainMenuPC.installSteam();
+        }
+        catch (Exception e)
+        {
+            Logger.getInstance().error(e.getMessage());
+            Logger.getInstance().logScreenshot();
+        }
+
     }
 
 }

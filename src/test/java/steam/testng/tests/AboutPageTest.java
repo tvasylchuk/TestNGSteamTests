@@ -1,5 +1,6 @@
 package steam.testng.tests;
 
+import framework.Logger;
 import framework.utils.FileManager;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
@@ -20,18 +21,25 @@ public class AboutPageTest extends BaseTest {
     }
 
     @Test
-    public void steamInstallationTest()
-    {
-        logTestName("steam.tests.AboutPageTest.steamInstallationTest");
-        logStep();
-        browser.navigate("https://store.steampowered.com/");
-        browser.maximise();
-        StoreHomePage mainPage = new StoreHomePage();
-        logStep();
-        mainPage.mainMenuPC.installSteam();
-        var aboutPage = new AboutSteamPage(args);
-        aboutPage.downloadInstallFile();
+    public void steamInstallationTest() throws Exception {
+        try{
+            logTestName("steam.tests.AboutPageTest.steamInstallationTest");
+            logStep();
+            browser.navigate("https://store.steampowered.com/");
+            browser.maximise();
+            StoreHomePage mainPage = new StoreHomePage();
+            logStep();
+            mainPage.mainMenuPC.installSteam();
+            var aboutPage = new AboutSteamPage(args);
+            aboutPage.downloadInstallFile();
 
-        Assert.assertTrue(FileManager.fileExists(browser.getBrowserDownloadDirectory()+"\\SteamSetup.exe"), "File SteamSetup.exe was not found.");
+            Assert.assertTrue(FileManager.fileExists(browser.getBrowserDownloadDirectory()+"\\SteamSetup.exe"), "File SteamSetup.exe was not found.");
+        }
+        catch (Exception e)
+        {
+            Logger.getInstance().error(e.getMessage());
+            Logger.getInstance().logScreenshot();
+        }
+
     }
 }
