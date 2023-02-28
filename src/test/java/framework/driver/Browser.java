@@ -7,10 +7,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steam.model.Languages;
 
-import javax.imageio.ImageIO;
 import java.io.*;
-import java.nio.file.Files;
-import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
@@ -18,7 +15,7 @@ import java.util.Calendar;
 
 public class Browser {
     private final static String BROWSER_FILE_NAME = "Browser.properties";
-    private final static String DEFAULT_BROWSER = "Firefox";
+    private final static String DEFAULT_BROWSER = "Chrome";
     private final static String DEFAULT_LOC = "EN";
 
     private static PropertiesResourceManager props;
@@ -114,6 +111,8 @@ public class Browser {
     {
         return wait;
     }
+
+    public BrowserType getCurrentBrowser() { return currentBrowser; }
 
     public int getFDownloadTimeout()
     {
