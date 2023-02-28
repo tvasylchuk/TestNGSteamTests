@@ -9,8 +9,11 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -21,6 +24,9 @@ public abstract class DriverFactory {
     private static String downloadFileDirectory = "";
     private static String browserLanguage = null;
 
+    private static RunTimeMode mode;
+    private static String gridUri;
+
     public static WebDriver GetBrowser(BrowserType type)
     {
         Logger logger = Logger.getInstance();
@@ -30,6 +36,7 @@ public abstract class DriverFactory {
             case Firefox -> {
                 FirefoxProfile profile = new FirefoxProfile();
                 profile.setPreference("browser.download.folderList", 2);
+                profile.setPreference("webdriver.chrome.driver", "C:\\webdrivers\\geckodriver.exe");
                 profile.setPreference("browser.download.dir", downloadFileDirectory);
                 profile.setPreference("fission.webContentIsolationStrategy", 0);
                 profile.setPreference("fission.bfcacheInParent", false);
@@ -38,7 +45,22 @@ public abstract class DriverFactory {
                 profile.setPreference("intl.accept_languages",browserLanguage);
                 FirefoxOptions option = new FirefoxOptions();
                 option.setProfile(profile);
-                return new FirefoxDriver(option);
+
+                switch (mode)
+                {
+                    case Local -> {
+                        return new FirefoxDriver(option);
+                    }
+                    case Grid -> {
+                        try {
+                            return new RemoteWebDriver(new URL(gridUri), option);
+                        } catch (MalformedURLException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                    default -> throw new IllegalStateException("Invalid browser runtime mode: " + mode);
+
+                }
             }
             case Chrome -> {
                 try {
@@ -56,7 +78,20 @@ public abstract class DriverFactory {
                     options.addArguments("safebrowsing-disable-extension-blacklist");
                     options.setExperimentalOption("excludeSwitches", List.of("disable-popup-blocking"));
 
-                    return new ChromeDriver(options);
+                    switch (mode)
+                    {
+                        case Local -> {
+                            return new ChromeDriver(options);
+                        }
+                        case Grid -> {
+                            try {
+                                return new RemoteWebDriver(new URL(gridUri), options);
+                            } catch (MalformedURLException e) {
+                                    throw new RuntimeException(e);
+                            }
+                        }
+                        default -> throw new IllegalStateException("Invalid browser runtime mode: " + mode);
+                    }
                 } catch (Exception e) {
                     logger.error("The driver wasn't initialized");
                     logger.error(Arrays.toString(e.getStackTrace()));
@@ -89,5 +124,7 @@ public abstract class DriverFactory {
         }
         downloadFileDirectory = System.getProperty("user.dir")+ resourceManager.getPropertyValueByKey("DownloadFileFolder");
         browserLanguage = resourceManager.getPropertyValueByKey("browserLanguage");
+        mode = RunTimeMode.valueOf(resourceManager.getPropertyValueByKey("RunTimeMode"));
+        gridUri = resourceManager.getPropertyValueByKey("SeleniumServer");
     }
 }

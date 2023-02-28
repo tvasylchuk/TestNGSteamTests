@@ -1,29 +1,21 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
 <suite name="Steam Test Suite" verbose="10" >
-    <test name="StartSteamPageTest"   >
+    <test name="SteamPageTest"   >
         <classes>
             <class name="steam.testng.tests.StartSteamPageTest"/>
-        </classes>
-    </test>
-    <test name="ActionGameTests"   >
-        <classes>
             <class name="steam.testng.tests.ActionPageTests"/>
-        </classes>
-    </test>
-    <test name="SearchTests"   >
-        <classes>
             <class name="steam.testng.tests.SearchGameTest"/>
-        </classes>
-    </test>
-    <test name="DownloadTests"   >
-        <classes>
             <class name="steam.testng.tests.AboutPageTest"/>
+            <class name="steam.testng.tests.EndToEndTest"/>
         </classes>
     </test>
-    <test name="EndToEndTests"   >
+    <test name="OnlinerPageTest"   >
         <classes>
-            <class name="steam.testng.tests.EndToEndTest"/>
+            <class name="onlinerTests.CatalogTests"/>
+            <class name="onlinerTests.ProductTests"/>
+            <class name="onlinerTests.TVPageTests"/>
+            <class name="onlinerTests.EndToEndTests"/>
         </classes>
     </test>
 </suite>

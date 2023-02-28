@@ -91,6 +91,7 @@ public abstract class BaseElement {
 
             element.click();
             logger.info("framework.elements.BaseElement.click.perform");
+            logger.logScreenshot();
         }
         catch(Exception e)
         {

@@ -2,33 +2,36 @@ package framework.driver;
 
 import framework.Logger;
 import framework.PropertiesResourceManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WindowType;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steam.model.Languages;
 
+import java.io.File;
 import java.io.FileNotFoundException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.text.SimpleDateFormat;
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Calendar;
 
 public class Browser {
     private final static String BROWSER_FILE_NAME = "Browser.properties";
-    private final static String DEFAULT_BROWSER = "Firefox";
-
+    private final static String DEFAULT_BROWSER = "Chrome";
     private final static String DEFAULT_LOC = "EN";
-    private static Languages loc = null;
-    private static String download_directory =  "";
-    private static WebDriver driver = null;
-    private static WebDriverWait wait = null;
+
     private static PropertiesResourceManager props;
     private static Logger logger;
+    private static Languages loc = null;
+    private static WebDriver driver = null;
+    private static WebDriverWait wait = null;
     private static Browser instance = null;
     private static BrowserType currentBrowser;
     private static Duration browserTimeout = Duration.ofSeconds(5);
     private static Duration pageLoadTimeout = Duration.ofSeconds(10);
-    private static int fileDownloadTimeout = 2000;
+    private static int fileDownloadTimeout;
+    private static String download_directory =  "";
     private static int windows = 0;
 
     private Browser()
@@ -51,9 +54,7 @@ public class Browser {
         browserTimeout = Duration.ofSeconds(Long.parseLong(props.getPropertyValueByKey("ConditionTimeout")));
         pageLoadTimeout = Duration.ofSeconds(Long.parseLong(props.getPropertyValueByKey("PageLoadTimeout")));
         fileDownloadTimeout = Integer.parseInt(props.getPropertyValueByKey("FileDownloadTimeOut"));
-
         currentBrowser =  getBrowserType(System.getProperty("browser"));
-
         loc =  getLocale(System.getProperty("locale"));
     }
 
@@ -114,6 +115,11 @@ public class Browser {
         return wait;
     }
 
+    public int getFDownloadTimeout()
+    {
+        return fileDownloadTimeout;
+    }
+
     public int getWindowsNumber() { return windows; }
 
     public String getBrowserDownloadDirectory() { return download_directory; }
@@ -147,11 +153,22 @@ public class Browser {
         }
     }
 
+    public static File takeScreenshot() throws Exception
+    {
+        String timeStamp;
+        File screenShotName;
+        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss.SSS").format(Calendar.getInstance().getTime());
+        screenShotName = new File(System.getProperty("user.dir")+"\\Screenshots\\"+timeStamp+".png");
+        Files.copy(scrFile.toPath(), screenShotName.toPath());
+        return screenShotName;
+    }
+
     private static BrowserType getBrowserType(String parameter) {
         if (parameter == null) {
             return BrowserType.valueOf(DEFAULT_BROWSER);
         }
-        
+
         return BrowserType.valueOf(parameter);
     }
 

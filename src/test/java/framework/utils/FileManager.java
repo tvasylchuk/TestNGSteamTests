@@ -1,6 +1,7 @@
 package framework.utils;
 
 import framework.Logger;
+import framework.driver.Browser;
 
 import java.io.File;
 import java.util.Arrays;
@@ -54,7 +55,7 @@ public class FileManager {
         File file = new File(fileFolder);
         var timer = 0;
 
-        while (checkFileDownloading(file, fileExtension) && timer<2000) {
+        while (checkFileDownloading(file, fileExtension) && timer< Browser.getInstance().getFDownloadTimeout()) {
             try {
                 logger.info("The file is being downloaded");
                 Thread.sleep(500);
@@ -74,7 +75,7 @@ public class FileManager {
         File file = new File(fileFolder);
         var timer = 0;
 
-        while (!checkFileDownloading(file, fileExtension) && timer<2000) {
+        while (!checkFileDownloading(file, fileExtension) && timer<Browser.getInstance().getFDownloadTimeout()) {
             try {
                 Thread.sleep(500);
                 timer+=500;

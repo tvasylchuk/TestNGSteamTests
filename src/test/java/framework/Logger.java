@@ -1,7 +1,10 @@
 package framework;
 
+import framework.driver.Browser;
 import org.testng.Assert;
 import org.testng.Reporter;
+
+import java.io.File;
 
 public class Logger {
 
@@ -54,5 +57,11 @@ public class Logger {
     public void logClassInitialization(final String className)
     {
         info(String.format("--------------- class.%1$s has been initialized ---------------", className));
+    }
+
+    public void logScreenshot() throws Exception {
+        var screenShotName = Browser.takeScreenshot();
+        logger.info("Screenshot: "+screenShotName.getAbsolutePath());
+        Reporter.log("<img src=\"file:///" + screenShotName.getAbsolutePath() + "\" alt=\"\" height='200' width='300'/><br />");
     }
 }
