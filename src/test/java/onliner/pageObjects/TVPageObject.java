@@ -68,10 +68,12 @@ public class TVPageObject extends BasePage {
 
     public void SetDiagonal(Pair<String, String> diagonals)
     {
-        //diagonalSizeFrom.getElement();
+        diagonalSizeFrom.getElement();
+        diagonalSizeFrom.scrollPageTillElementVisible();
         diagonalSizeFrom.selectItemByText(diagonals.first());
 
-        //diagonalSizeTo.getElement();
+        diagonalSizeTo.getElement();
+        diagonalSizeFrom.scrollPageTillElementVisible();
         diagonalSizeTo.selectItemByText(diagonals.second());
     }
 
