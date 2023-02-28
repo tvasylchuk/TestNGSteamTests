@@ -39,6 +39,7 @@ public class AboutPageTest extends BaseTest {
         {
             Logger.getInstance().error(e.getMessage());
             Logger.getInstance().logScreenshot();
+            throw new Exception(e);
         }
 
     }

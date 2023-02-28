@@ -90,6 +90,7 @@ public class EndToEndTest extends BaseTest {
         {
             Logger.getInstance().error(e.getMessage());
             Logger.getInstance().logScreenshot();
+            throw new Exception(e);
         }
     }
 }
