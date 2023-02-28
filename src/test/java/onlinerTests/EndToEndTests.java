@@ -26,8 +26,10 @@ public class EndToEndTests extends  BaseTest {
     }
 
     @Test
-    public void checkSearchResultsTest() throws FileNotFoundException {
+    public void checkSearchResultsTest() {
         Logger.loggerInstance.logTestName("onlinerTests.EndToEndTests.checkSearchResultsTest");
+        browser.maximise();
+        browser.waitPageToLoad();
         var mainPage = new MainPage();
         mainPage.SelectMenu(catalog);
 

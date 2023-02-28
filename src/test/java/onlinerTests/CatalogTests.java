@@ -27,6 +27,8 @@ public class CatalogTests extends BaseTest{
     public void navigateToCatalogTest()
     {
         Logger.loggerInstance.logTestName("onlinerTests.CatalogTests.navigateToCatalogTest");
+        browser.maximise();
+        browser.waitPageToLoad();
         var mainPage = new MainPage();
         mainPage.SelectMenu(catalog);
 

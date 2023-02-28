@@ -29,6 +29,8 @@ public class TVPageTests extends BaseTest{
         tvMakers.add( tvMaker );
 
         browser.navigate("https://catalog.onliner.by/tv");
+        browser.maximise();
+        browser.waitPageToLoad();
 
         var page = new TVPageObject();
         page.ConfirmLocation();
@@ -46,6 +48,8 @@ public class TVPageTests extends BaseTest{
         resolutions.add( tvResolution );
 
         browser.navigate("https://catalog.onliner.by/tv");
+        browser.maximise();
+        browser.waitPageToLoad();
 
         var page = new TVPageObject();
         page.ConfirmLocation();
@@ -60,6 +64,8 @@ public class TVPageTests extends BaseTest{
     {
         Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetUpperPriceFilterTest");
         browser.navigate("https://catalog.onliner.by/tv");
+        browser.maximise();
+        browser.waitPageToLoad();
 
         var page = new TVPageObject();
         page.ConfirmLocation();
@@ -76,6 +82,8 @@ public class TVPageTests extends BaseTest{
         Logger.loggerInstance.logTestName("onlinerTests.TVPageTests.SetDiagonalFilterTest");
 
         browser.navigate("https://catalog.onliner.by/tv");
+        browser.maximise();
+        browser.waitPageToLoad();
 
         var page = new TVPageObject();
         page.ConfirmLocation();

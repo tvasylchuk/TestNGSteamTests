@@ -26,6 +26,8 @@ public class ProductTests extends BaseTest{
     public void SelectProductTest() {
         Logger.loggerInstance.logTestName("onlinerTests.ProductTests.SelectProductTest");
         browser.navigate("https://catalog.onliner.by/");
+        browser.maximise();
+        browser.waitPageToLoad();
         CatalogPage page = new CatalogPage();
         page.selectProductFromCatalog(department, category, product);
 
