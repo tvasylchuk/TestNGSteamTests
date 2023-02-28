@@ -16,7 +16,7 @@ public class TVPageObject extends BasePage {
     private final ProductsPageComponent productsPageComponent = new ProductsPageComponent();
     private SearchResultPageComponent searchResult = null;
     private final Label Title = new Label (By.tagName("h1"));
-    private final Button btnLocation = new Button(By.cssSelector("span.button-style.button-style_another.button-style_base.schema-filter__button"), "Confirm location button");
+    private final Button btnLocation = new Button(By.xpath("//div[@class='popover-style__content']//span[contains(text(), 'Да, верно')]"), "Confirm location button");
     private final Label lbFilterTag = new Label(By.className("schema-tags__text"));
     private final Button btnSearchProducts = new Button(By.xpath("//div[@class='schema-filter-button__state schema-filter-button__state_initial schema-filter-button__state_disabled schema-filter-button__state_control schema-filter-button__state_animated']"), "Search product");
     private final TextBox UpperPrice = new TextBox(By.xpath("//input[@class='schema-filter-control__item schema-filter__number-input schema-filter__number-input_price' and @placeholder='до']"));
