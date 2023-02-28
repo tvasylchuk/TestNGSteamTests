@@ -7,8 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import steam.model.Languages;
 
-import java.io.File;
-import java.io.FileNotFoundException;
+import javax.imageio.ImageIO;
+import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.text.SimpleDateFormat;
@@ -156,12 +156,20 @@ public class Browser {
     public static File takeScreenshot() throws Exception
     {
         String timeStamp;
-        File screenShotName;
-        File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+        File screenShotFile;
+        byte[] scrImage = ((TakesScreenshot)driver).getScreenshotAs(OutputType.BYTES);
         timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss.SSS").format(Calendar.getInstance().getTime());
-        screenShotName = new File(System.getProperty("user.dir")+"\\Screenshots\\"+timeStamp+".png");
-        Files.copy(scrFile.toPath(), screenShotName.toPath());
-        return screenShotName;
+        screenShotFile = new File(System.getProperty("user.dir")+"\\Screenshots\\"+timeStamp+".png");
+        try{
+            OutputStream outputStream = new BufferedOutputStream(new FileOutputStream(screenShotFile));
+            outputStream.write(scrImage);
+        }
+        catch (Exception e) {
+            Logger.loggerInstance.error(e.getMessage());
+            Logger.loggerInstance.error(Arrays.toString(e.getStackTrace()));
+        }
+
+        return screenShotFile;
     }
 
     private static BrowserType getBrowserType(String parameter) {
