@@ -24,29 +24,29 @@ public class Logger {
 
     public void error(final String message) {
         logger.error(message);
-        Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
+        Reporter.log("<div class=\"failedConfig\">"+message+"</div>");
     }
 
     public void debug(final String message) {
         logger.debug(message);
-        Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
+        Reporter.log("<div class=\"failedConfig\">"+message+"</div>");
     }
 
     public void fatal(final String message)
     {
         logger.fatal(message);
-        Reporter.log("<div class=\"failedConfig\">"+message+"</div><br>");
+        Reporter.log("<div class=\"failedConfig\">"+message+"</div>");
         Assert.assertTrue(false);
     }
 
     public void warn(final String message) {
         logger.warn(message);
-        Reporter.log("<div class=\"skipped\">"+message+"</div><br>");
+        Reporter.log("<div class=\"skipped\">"+message+"</div>");
     }
 
     public void info(final String message) {
         logger.info(message);
-        Reporter.log(message+"<br>");
+        Reporter.log(message);
     }
 
     public void logStep(final int step)
@@ -67,6 +67,7 @@ public class Logger {
     public void logScreenshot() throws Exception {
         var screenShotName = Browser.takeScreenshot();
         logger.info("Screenshot: "+screenShotName.getAbsolutePath());
-        Reporter.log("</br><img id='ClickResult' src='" + screenShotName.getAbsolutePath() + "' style='width:600px'/>");
+        Reporter.log("</br><font color='#73a9d0'>***************Screen Of the action****************</font>");
+        Reporter.log("</br><img name=\"ClickResult\" src=\"" + screenShotName.getAbsolutePath() + "\" style=\"width:600px\"/>");
     }
 }
